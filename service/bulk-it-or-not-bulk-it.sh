@@ -13,8 +13,8 @@ SCHEMA="./${service_loc}/1million.schema"
 RDFFILE="./${service_loc}/1million.rdf.gz"
 
 
-my_alpha=${addrHost}:7080
-my_zero=${addrHost}:${zeroPort}
+my_alpha=0.0.0.0:7080
+my_zero=zero:${zeroPort}
 
 
 my_alpha_p_0=${DIR}/p
@@ -87,7 +87,7 @@ echo "========================================="
    RUN_BulkLoader () {
     if check_existing_RDF; then
       echo "Dgraph BulkLoader Starting..."
-      dgraph bulk -r ${RDFFILE} -s ${SCHEMA} --reduce_shards=1 --zero=${my_zero}
+      dgraph bulk -f ${RDFFILE} -s ${SCHEMA} --reduce_shards=1 --zero=${my_zero}
       return 0
       else
        echo "You neet to provide a RDF and a Schema file"

@@ -1,8 +1,8 @@
 #!/bin/sh
 
-dgraphVersion=v1.1.1
+dgraphVersion=v20.03.1
 LocalPath='./${pwd}'
-addrHost=192.168.99.100
+addrHost=localhost
 
 #Zero Configs
 bindall=true
